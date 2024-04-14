@@ -108,11 +108,9 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     background-color: rgba(247, 249, 251, 0.94);
     position: fixed;
     z-index: 4;
+    top: 15%;
 }
-.place{
-    /*background-color: beige;*/
-}
-/*.main .right-side a {color: #000;}*/
+
 .advantage{margin-top: 10px;}
 
 .circle{
@@ -173,14 +171,13 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 
     border-radius: 3px;
 }
-.slider {
-
-}
 
 .place ul, ol {
     margin-top: 0;
     margin-bottom: 10px;
     list-style-type: none;
+    overflow-y: auto;
+    height: 300px;
 }
 
 .place a.parent {

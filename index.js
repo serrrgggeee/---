@@ -1,5 +1,5 @@
 let result;
-const url = 'http://127.0.0.1:9090/categories/3';
+const url = '../data.json';
 let root_nodes = '';
 let place_right_side_html = '';
 

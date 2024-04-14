@@ -73,6 +73,9 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .left-side li {
     color: #1d3e22;
 }
+.left-side .hided_buton_show_menu {
+  display: none;
+}
 
 
 .header-top {
@@ -99,7 +102,10 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .main .left-side {
     border-radius: 7px;
     padding: 20px 20px 20px 0px;
-    background-color: rgba(247, 249, 251, 0.71);
+    background-color: rgba(247, 249, 251, 0.94);
+    position: fixed;
+    z-index: 4;
+    /* display: none; */
 }
 .place{
     /*background-color: beige;*/

@@ -79,6 +79,8 @@ function single_page() {
   a.forEach((input) => {
     input.addEventListener("click", linkClick, false);
   });
+  const hided_buton_show_menu = document.querySelector('.left-side .hided_buton_show_menu');
+  hided_buton_show_menu.addEventListener("click", showMenu, false);
 }
 
 function linkClick(event) {
@@ -87,4 +89,19 @@ function linkClick(event) {
   const href = target.pathname
   router(href)
   history.pushState({}, null, target);
+  hideMenu();
+}
+
+function hideMenu() {
+  const left_side = document.querySelector('.left-side .place');
+  const hided_buton_show_menu = document.querySelector('.left-side .hided_buton_show_menu');
+  left_side.style.display = 'none';
+  hided_buton_show_menu.style.display = 'block';
+}
+
+function showMenu() {
+  const left_side = document.querySelector('.left-side .place');
+  const hided_buton_show_menu = document.querySelector('.left-side .hided_buton_show_menu');
+  left_side.style.display = 'block';
+  hided_buton_show_menu.style.display = 'none';
 }

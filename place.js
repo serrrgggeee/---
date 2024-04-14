@@ -24,7 +24,7 @@ function place_ready(match, result) {
     } 
 
     place_right_side_html = `
-        <div class="col-md-9 col-md-offset- right-side">
+        <div class="col-md-12 col-md-offset- right-side">
             <div class="row single_place">
         
                 <div itemprop="description" class="col-md-12">

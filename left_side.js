@@ -1,7 +1,9 @@
 function left_side_ready() {
 
     const left_side_html = `
-    <div class="col-md-3 left-side">
+    
+    <div id="navbar_left_side" class="left-side">
+        <button class="hided_buton_show_menu">Показать меню</button>
         <div class="row place">
             <div class="col-md-12">
                 <ul>
@@ -9,7 +11,6 @@ function left_side_ready() {
                 </ul>
             </div>
         </div>
-        <side-menur></side-menu>
         
     </div>
     `

@@ -70,6 +70,9 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     color: white;
 }
 
+.left-side .place {
+  display: none;
+}
 .left-side li {
     color: #1d3e22;
 }
@@ -105,7 +108,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     background-color: rgba(247, 249, 251, 0.94);
     position: fixed;
     z-index: 4;
-    display: none;
 }
 .place{
     /*background-color: beige;*/

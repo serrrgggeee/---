@@ -1,7 +1,6 @@
-let block_content_html = '';
 class AppBlockContent extends HTMLElement {
     connectedCallback() {
-        this.innerHTML = block_content_html;
+        this.innerHTML = '';
         this.id = 'app-block-content';
     }
 }

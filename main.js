@@ -5,6 +5,15 @@ function main_ready() {
 		const app_block_content = document.getElementById('app-block-content');
    		app_block_content.innerHTML = block_content_html;
 
+		const head_html = `
+		   <meta name="title" content="Октябрьский район Волгоградская область">
+		   <title>Октябрьский район Волгоградская область. Mеста, природа, общество</title>
+		   <meta name="description" content="Октябрьский район Волгоградская область">
+		   <meta name="keywords" content="Октябрьский район Волгоградская область">
+	   	`
+		const head_html_content = document.getElementById('head');
+		head_html_content.innerHTML = head_html;
+
 		const first_category = result["categories"][0];
 		let slides_category = `
 			<div class="item active">

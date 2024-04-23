@@ -9,14 +9,14 @@ function place_ready(match, result) {
             <div class="col-md-3 col-md-offset- col-sm-3 col-xs-12 thumb text-center">
                 <div class="image">
                     <a class="thumbnail img-responsive" data-fancybox-group="group" id="image-${index}" title="${photo['name']}" src="" alt="${photo['name']}">
-                        <img class="img-responsive" src="${photo['image']}" alt="${photo['name']}">
+                        <img class="img-responsive" src="${media_slash}${photo['image']}" alt="${photo['name']}">
                     </a>
-                    <a class="name_link" href="${photo['image']}" title="${photo['name']}">${photo['name']}</a>
+                    <a class="name_link" href="${media_slash}${photo['image']}" title="${photo['name']}">${photo['name']}</a>
                 </div>
             </div>`;
         photos_corousel += `
             <div id="slide-image-${index}" class="item">
-                <img src="${photo['image']}" alt="${photo['name']}" height="100%">
+                <img src="${media_slash}${photo['image']}" alt="${photo['name']}" height="100%">
                 <div class="img-description"><p>${photo['name']}</p></div>
             </div>
         `;

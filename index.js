@@ -1,5 +1,4 @@
-let result;
-const url = '../data.json';
+const url = 'http://xn----7sbafc3bhdcb2bd2ahhn8ni8c.xn--p1ai/data.json';
 let root_nodes = '';
 let place_right_side_html = '';
 
@@ -8,35 +7,11 @@ const ROUNTERS = {
   '^(/\)$': main_ready
 }
 
-var getJSON = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, false);
-    
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        callback(null, xhr.response);
-      } else {
-        callback(status, xhr.response);
-      }
-    };
-    xhr.send();
-};
-if (document.readyState == 'loading') { 
-    getJSON(url,
-      function(err, data) {
-          if (err !== null) {
-              console.log('Something went wrong: ' + err);
-          } else {
-            result = JSON.parse(data);
-            get_left_side(result);
-            left_side_ready();
-            let path = window.location.pathname;
-            router(path);
-            single_page();
-          }
-      });
-}
+get_left_side(result);
+left_side_ready();
+let path = window.location.pathname;
+router(path);
+single_page();
 
 
 function router(path) {
@@ -48,12 +23,14 @@ function router(path) {
     const method = ROUNTERS[item];
     const re = new RegExp(item);
     match = re.exec(path)
+    console.log(method);
     if (match !== null) {
+      console.log(method);
       method(match, result);
       return;
     }
   }
-  page_not_found();
+  window[default_page]()
 
 }
 
@@ -85,10 +62,17 @@ function single_page() {
 
 function linkClick(event) {
   event.preventDefault();
-  const target = event.target;
+  event.stopPropagation();
+  const target = event.currentTarget;
   const href = target.pathname
+  console.log(target);
+  console.log(href);
   router(href)
-  history.pushState({}, null, target);
+  try {
+
+  } catch {
+    history.pushState({}, null, target);
+  }
   hideMenu();
 }
 

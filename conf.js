@@ -1,0 +1,1 @@
+const main_page = typeof main_link !== 'undefined' ? main_link: "/";

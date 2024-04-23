@@ -17,10 +17,10 @@ function main_ready() {
 		const first_category = result["categories"][0];
 		let slides_category = `
 			<div class="item active">
-				<a href="/${first_category.id}">
+				<a class="single_page_link" href="/${first_category.id}/">
 					<img src="${first_category.image_description}" alt=""/>
 
-					<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-12">
 						<p class="text-center labale">${first_category.name} ${first_category.type_place}</p>
 					</div>
 				</a>
@@ -33,10 +33,10 @@ function main_ready() {
 
 			slides_category += `
 				<div class="item">
-					<a href="/${category.id}">
+					<a class="single_page_link" href="/${category.id}/">
 						<img src="${image}" alt=""/>
 
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-12">
 							<p class="text-center labale">${category.name} ${category.type_place}</p>
 						</div>
 					</a>
@@ -47,13 +47,11 @@ function main_ready() {
 
 
 		const right_side_html = `
-			<div class="col-md-9 right-side">
+			<div class="col-md-12 right-side">
 				<div class="row slider">
-					<div class="col-md-10">
-						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner" role="listbox">
-								${slides_category}
-							</div>
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+							${slides_category}
 						</div>
 					</div>
 				</div>
@@ -95,15 +93,15 @@ function main_ready() {
 
 		const video_html = `
 			<div class="row video">
-				<div class="col-md-11 col-md-offset-1">
+				<div class="col-md-12">
 					<h3>Видео Октябрьского района</h3>
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<div class="embed-responsive embed-responsive-16by9">
 								<div id="player" class="embed-responsive-item"></div>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-12">
 						<!-- Indicators -->
 							<ol class="playlist_vide">
 								${videos_li}

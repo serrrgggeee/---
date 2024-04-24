@@ -11,7 +11,7 @@ function main_ready() {
 		   <meta name="description" content="Октябрьский район Волгоградская область">
 		   <meta name="keywords" content="Октябрьский район Волгоградская область">
 	   	`
-		const head_html_content = document.getElementById('head');
+		const head_html_content = document.getElementById('app-head');
 		head_html_content.innerHTML = head_html;
 
 		const first_category = result["categories"][0];

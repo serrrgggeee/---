@@ -23,9 +23,7 @@ function router(path) {
     const method = ROUNTERS[item];
     const re = new RegExp(item);
     match = re.exec(path)
-    console.log(method);
     if (match !== null) {
-      console.log(method);
       method(match, result);
       return;
     }
@@ -65,13 +63,11 @@ function linkClick(event) {
   event.stopPropagation();
   const target = event.currentTarget;
   const href = target.pathname
-  console.log(target);
-  console.log(href);
-  router(href)
   try {
+    router(href)
 
-  } catch {
     history.pushState({}, null, target);
+  } catch {
   }
   hideMenu();
 }

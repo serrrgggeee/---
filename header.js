@@ -8,6 +8,7 @@ class HtmlHeade extends HTMLElement {
             <link rel="icon" type="image/ico" href="${static_dot}./static/theme/images/favicon.png">
             <link rel="stylesheet" type="text/css" href="${static_dot}/static/css/bootstrap.css"/>
             <link rel="stylesheet" type="text/css"href="${static_dot}/static/bootstrap_slider/css/bootstrap_slider.css"/>
+            <link rel="stylesheet" type="text/css" href="${static_dot}/static/css/main/main.css"/>
         `;
         this.id = 'html-head'
     }

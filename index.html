@@ -3,7 +3,6 @@
 <head>
 	
 	<html-head></html-head>
-	<link rel="stylesheet" type="text/css" href="./static/css/main/main.css"/>
 	<app-head></app-head>
 	
 </head>
@@ -27,7 +26,7 @@
 	</div>
 </body>
 <script type="text/javascript">
-	const static_dot = ".";
+	const static_dot = window.location.pathname.includes('index.html')? ".": "";
 	const scripts = [
 		`${static_dot}/static/js/jquery-1.11.1.min.js`,
 		`${static_dot}/static/js/bootstrap.js`,

@@ -30,7 +30,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .left-side a.parent {
     color: #585f69;
     margin: 0 0 -2px 0;
-    /*padding-right: 62%;*/
     text-decoration: none;
     border-bottom: 2px solid #547c00;
 }
@@ -107,6 +106,10 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     float: none;
     margin: 0 auto;
 }
+
+.main {
+  margin-top: 55px;
+} 
 .main .left-side {
     border-radius: 7px;
     padding: 20px 20px 20px 0px;
@@ -156,7 +159,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .green_back{background-color: rgb(66, 80, 53);border-color: #3c763d;}
 .black{color:black;}
 .orange{color: #f6a630;}
-/*.green_back{background-color:#00cc00;}*/
 .blue_back{background-color:#1da6e6;}
 .grey_back{background-color:#afb3b2;}
 .brown_back{background-color:#605855;}
@@ -172,6 +174,9 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .paid{height: 80px;}
 
 
+.slider {
+  min-height: 700px;
+}
 .slider img {
 
     border-radius: 3px;
@@ -198,7 +203,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 }
 
 .place  li:hover a.children {
-    /*color: #ffff03;*/
     text-decoration: none;
 }
 
@@ -218,14 +222,12 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .labale{
     background-color: #f9f9f0;
     padding: 10px 10px 10px 10px;
-    /*color: #000;*/
     border-radius: 10px;
 }
 
 .labale:hover{
     background-color: rgba(0, 0, 0, 0.09);
     padding: 10px 10px 10px 10px;
-    /*color: #ffff03;*/
     border-radius: 10px;
 }
 
@@ -247,9 +249,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 
 }
 
-/*.single_place a{*/
-   /*color: rgba(37, 56, 115, 0.94) !important;*/
-/*}*/
 
 .single_place p{
    font-style: normal;
@@ -340,15 +339,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   text-decoration:underline;
 }
 
-/*
---- ВЫПАДАЮЩИЕ ПУНКТЫ ---
-#nav ul{
-  list-style:none;
-  position:absolute;
-  left:-9999px; /* Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;)
-  opacity:0; /* Устанавливаем начальное состояние прозрачности 
-  -webkit-transition:0.25s linear opacity; /* В Webkit выпадающие пункты будут проявляться 
-}*/
 
 #nav ul li{
   padding-top:1px; /* Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
@@ -356,17 +346,13 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   background:url(dot.gif);
 }
 #nav ul a{
-    /* white-space: nowrap; */
     display: block;
-    /* background-color: #485e39; */
 }
 #nav li:hover ul{ /* Выводим выпадающий пункт при наведении курсора */
   left:0; /* Приносим его обратно на экран, когда нужно */
   opacity:1; /* Делаем непрозрачным */
 }
 #nav li:hover a{ /* Устанавливаем стили для верхнего уровня, когда выводится выпадающий список */
-  /*background:#6b0c36;
-  background:rgba(107,12,54,0.75)*/; /* Выглядит полупрозрачным */
   text-decoration:underline;
 }
 #nav li:hover ul a{ /* Изменяем некоторые стили верхнего уровня при выводе выпадающего пункта */
@@ -374,8 +360,6 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   -webkit-transition:-webkit-transform 0.075s linear;
 }
 #nav li:hover ul li a:hover{ /* Устанавливаем стили для выпадающих пунктов, когда курсор наводится на конкретный пункт */
-  /*background:#333;
-  background:rgba(51,51,51,0.75);*/ /* Будет полупрозрачным */
   text-decoration:underline;
   -moz-transform:scale(1.05);
   -webkit-transform:scale(1.05);
@@ -478,28 +462,14 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   .carousel-inner > .item > img, 
   .carousel-inner > .item > a > img { 
       height: 100%;
-      /* min-height: 500px !important;
-      max-height: 500px !important;  */
   }
 }
-/* @media (min-width:992px) {
-  .carousel-inner > .item > img, 
-  .carousel-inner > .item > a > img {
-      min-height: 500px !important;
-      max-height: calc(100% - 300px); 
-    }
-} */
 
 
 @media (max-width:767px){
   #nav li{
     width: 100%;
   }
-  /* .carousel-inner > .item > img, 
-  .carousel-inner > .item > a > img {
-      min-height: 500px !important;
-      max-height: 500px !important; 
-  } */
 
   .platz-side  img {
       height:auto; !important;
@@ -507,10 +477,3 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   }
 }
 
-  /* @media (max-width:480px){
-    .carousel-inner > .item > img, 
-    .carousel-inner > .item > a > img {
-        min-height: 200px !important;
-        max-height: 200px !important; 
-    }
-  } */

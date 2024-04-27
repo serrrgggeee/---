@@ -1,10 +1,10 @@
-const url = 'http://xn----7sbafc3bhdcb2bd2ahhn8ni8c.xn--p1ai/data.json';
 let root_nodes = '';
 let place_right_side_html = '';
 
 const ROUNTERS = {
-  '^\/(\\d{1,})\/$': place_ready,
-  '^(/\)$': main_ready
+  '^\/(\\d{1,})\/$': {'method': place_ready, 'file': 1, 'data': 'result'},
+  '^\/book\/(\\d{1,})\/$': {'method': book_ready, 'file': 'book_data', 'data': 'book_result'},
+  '^(/\)$': {'method': main_ready, 'data': 'result'}
 }
 
 get_left_side(result);
@@ -20,11 +20,15 @@ function router(path) {
   }
 
   for (const item in ROUNTERS) {
-    const method = ROUNTERS[item];
+    const router = ROUNTERS[item];
     const re = new RegExp(item);
     match = re.exec(path)
     if (match !== null) {
-      method(match, result);
+      if(router.file) {
+        load_data(match, router.file, router.data).then(data=>{
+          router.method(match, data);
+        })
+      }
       return;
     }
   }
@@ -84,4 +88,20 @@ function showMenu() {
   const hided_buton_show_menu = document.querySelector('.left-side .hided_buton_show_menu');
   left_side.style.display = 'block';
   hided_buton_show_menu.style.display = 'none';
+}
+
+function load_data(match, src_name=null, data_name=null) {
+  if(!window.hasOwnProperty(data_name)) {
+    const src = src_name? `${static_dot}/${src_name}.js`: `${static_dot}/${match}.js`;
+		var s = document.createElement( 'script' );
+		s.setAttribute( 'src', src );
+		s.setAttribute( 'charset', 'utf-8' );
+		document.body.appendChild( s );
+  }
+    
+    return new Promise(function(resolve, reject) {
+      setTimeout(() => {
+        resolve(window[data_name]);
+      }, 300);
+    })
 }

@@ -9,17 +9,19 @@ single_page();
 
 
 function router(path) {
+  if(path.includes('index.html')) {
+    path = localStorage.getItem("link");
+  }
   if((path[path.length -1]) != '/') {
     path = path[path.length -1] + '/'
   }
-
   for (const item in ROUNTERS) {
     const router = ROUNTERS[item];
     const re = new RegExp(item);
     match = re.exec(path)
     if (match !== null) {
       if(router.file) {
-	load_data(match, router.file, router.data)
+	      load_data(match, router.file, router.data);
         get_data(router.data).then(data=>{
 	        router.method(match, data);
         })
@@ -62,11 +64,13 @@ function linkClick(event) {
   event.stopPropagation();
   const target = event.currentTarget;
   const href = target.pathname
+  
   try {
     router(href)
-
+    localStorage.setItem("link", href);
     history.pushState({}, null, target);
-  } catch {
+  } catch(e){
+    console.log(e);
   }
   hideMenu();
 }
@@ -86,24 +90,22 @@ function showMenu() {
 }
 
 function get_data(data_name) {
-    if(!window.hasOwnProperty(data_name)){
-	setTimeout(() => {
-            return get_data(data_name);
-      	}, 0);
-    } else {
-    	return new Promise(function(resolve, reject) {
-            resolve(window[data_name]);
-        })
+  return new Promise(function(resolve, reject) {
+    let loop = () => { // use arrow function to capture "this"
+      if(!window.hasOwnProperty(data_name)) setTimeout(loop, 1000);
+      else  resolve(window[data_name]);
     }
+    loop();
+  })
 }
 
 function load_data(match, src_name=null, data_name=null) {
   if(!window.hasOwnProperty(data_name)) {
-    	const src = src_name? `${static_dot}/${src_name}.js`: `${static_dot}/${match}.js`;
-	var s = document.createElement( 'script' );
-	s.setAttribute( 'src', src );
-	s.setAttribute( 'charset', 'utf-8' );
-	document.body.appendChild( s );
+    const src = src_name? `${static_dot}/${src_name}.js`: `${static_dot}/${match}.js`;
+    var s = document.createElement( 'script' );
+    s.setAttribute( 'src', src );
+    s.setAttribute( 'charset', 'utf-8' );
+    document.body.appendChild( s );
   }
    
 }

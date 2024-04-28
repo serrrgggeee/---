@@ -28,14 +28,10 @@
 <script type="text/javascript">
 	const static_dot = window.location.pathname.includes('index.html')? ".": "";
 	const scripts = [
-		`${static_dot}/static/js/jquery-1.11.1.min.js`,
 		`${static_dot}/static/js/bootstrap.js`,
 		`${static_dot}/static/js/gallery.js`,
-		`${static_dot}/data.js`,
-		`${static_dot}/.env.js`,
+		`${static_dot}/top_menu.js`,
 		`${static_dot}/place.js`,
-		`${static_dot}/conf.js`,
-		`${static_dot}/header.js`,
 		`${static_dot}/left_side.js`,
 		`${static_dot}/page_not_found.js`,
 		`${static_dot}/block_content.js`,
@@ -44,14 +40,22 @@
 		`${static_dot}/static/js/soc.js`,
 		`${static_dot}/static/js/main.js`,
 		`${static_dot}/static/js/jquery.reel.js`,
-		`${static_dot}/static/js/soc.js`,
 		`${static_dot}/main.js`,
 		`${static_dot}/book.js`,
 	];
 	const scripts_on_load = [
 		`${static_dot}/index.js`,
 	];
-		
+
+	addStyle(`${static_dot}/static/css/bootstrap.css`)
+	addStyle(`${static_dot}/static/bootstrap_slider/css/bootstrap_slider.css`)
+	addStyle(`${static_dot}/static/css/main/main.css`)
+	addScript(`${static_dot}/.env.js`);	
+	addScript(`${static_dot}/conf.js`);	
+	addScript(`${static_dot}/data.js`);	
+	addScript(`${static_dot}/static/js/jquery-1.11.1.min.js`);	
+	addScript(`${static_dot}/header.js`);	
+	
 	function addScript( src ) {
 		var s = document.createElement( 'script' );
 		s.setAttribute( 'src', src );
@@ -59,17 +63,63 @@
 		document.body.appendChild( s );
 	}
 
-	scripts.forEach(item=> {
-		addScript(item);
-	})
+	function addStyle(href) {
+		const element = document.createElement("link");
+		element.setAttribute("rel", "stylesheet");
+		element.setAttribute("type", "text/css");
+		element.setAttribute("href", href);
+		document.getElementsByTagName("head")[0].appendChild(element);
+	}
+
+	function load_router() {
+		setTimeout(() => {
+			try{
+				window.ROUNTERS = {
+					'^\/(\\d{1,})\/$': {'method': place_ready, 'file': 1, 'data': 'result'},
+					'^\/book\/(\\d{1,})\/$': {'method': book_ready, 'file': 'book_data', 'data': 'book_result'},
+					'^(/\)$': {'method': main_ready, 'file': 'data', 'data': 'result'}
+				}
+			}catch{
+				load_router();
+			}
+
+		}, 0);
+	}
+	
+	load_router();
+	
+	function load_header() {
+		setTimeout(() => {
+			if(customElements.get('html-head') === undefined || !window['$']) {
+				load_header();
+			}else {
+				scripts.forEach(item=> {
+						addScript(item);
+				})
+			}
+
+		}, 0);
+	}
+	
+	load_header();
+
+	function load_index() {
+		setTimeout(() => {
+			if(customElements.get('html-head') === undefined || !window.ROUNTERS) {
+				load_index();
+			}else {
+				scripts_on_load.forEach(item=> {
+						addScript(item);
+					})
+				}
+
+		}, 0);
+	}
+	
 	window.addEventListener("load", function(){
-		scripts_on_load.forEach(item=> {
-			addScript(item);
-		})
+		load_index();
 	});
 
 </script>
 
 </html>
-
-

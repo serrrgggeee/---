@@ -1,12 +1,6 @@
 let root_nodes = '';
 let place_right_side_html = '';
 
-const ROUNTERS = {
-  '^\/(\\d{1,})\/$': {'method': place_ready, 'file': 1, 'data': 'result'},
-  '^\/book\/(\\d{1,})\/$': {'method': book_ready, 'file': 'book_data', 'data': 'book_result'},
-  '^(/\)$': {'method': main_ready, 'data': 'result'}
-}
-
 get_left_side(result);
 left_side_ready();
 let path = window.location.pathname;
@@ -25,8 +19,9 @@ function router(path) {
     match = re.exec(path)
     if (match !== null) {
       if(router.file) {
-        load_data(match, router.file, router.data).then(data=>{
-          router.method(match, data);
+	load_data(match, router.file, router.data)
+        get_data(router.data).then(data=>{
+	        router.method(match, data);
         })
       }
       return;
@@ -90,18 +85,26 @@ function showMenu() {
   hided_buton_show_menu.style.display = 'none';
 }
 
+function get_data(data_name) {
+    if(!window.hasOwnProperty(data_name)){
+	setTimeout(() => {
+            get_data(data_name);
+      	}, 0);
+    } else {
+    	return new Promise(function(resolve, reject) {
+            resolve(window[data_name]);
+        })
+    }
+}
+
 function load_data(match, src_name=null, data_name=null) {
   if(!window.hasOwnProperty(data_name)) {
-    const src = src_name? `${static_dot}/${src_name}.js`: `${static_dot}/${match}.js`;
-		var s = document.createElement( 'script' );
-		s.setAttribute( 'src', src );
-		s.setAttribute( 'charset', 'utf-8' );
-		document.body.appendChild( s );
+    	const src = src_name? `${static_dot}/${src_name}.js`: `${static_dot}/${match}.js`;
+	var s = document.createElement( 'script' );
+	s.setAttribute( 'src', src );
+	s.setAttribute( 'charset', 'utf-8' );
+	document.body.appendChild( s );
   }
-    
-    return new Promise(function(resolve, reject) {
-      setTimeout(() => {
-        resolve(window[data_name]);
-      }, 300);
-    })
+   
 }
+

@@ -80,8 +80,8 @@ function place_ready(match, result) {
 		   <meta name="description" content="${place['name']}">
 		   <meta name="keywords" content="${place['name']}">
 	   	`
-	const head_html_content = document.getElementById('head');
-		head_html_content.innerHTML = head_html;
+	const head_html_content = document.getElementById('app-head');
+	head_html_content.innerHTML = head_html;
 
     let root_nodes = '';
     for(let index in result["categories"]) {

@@ -1,9 +1,4 @@
 function main_ready() {
-		block_content_html = `
-			<right-side></right-side>
-		`
-		const app_block_content = document.getElementById('app-block-content');
-   		app_block_content.innerHTML = block_content_html;
 
 		const head_html = `
 		   <meta name="title" content="Октябрьский район Волгоградская область">
@@ -45,8 +40,7 @@ function main_ready() {
 				
 		}
 
-
-		const right_side_html = `
+		block_content_html = `
 			<div class="col-md-12 right-side">
 				<div class="row slider">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -58,27 +52,8 @@ function main_ready() {
 				<video-content></video-content>
 			</div>
 		`
-		
-		class RightSideContent extends HTMLElement {
-			connectedCallback() {
-				this.innerHTML = right_side_html;
-			}
-		}
-		window.customElements.define("right-side", RightSideContent)
-		
-		
-
-		const side_menu_html = `
-			<p>side menu</p>
-		`
-		class SideMenuContent extends HTMLElement {
-			connectedCallback() {
-				this.innerHTML = side_menu_html;
-			}
-		}
-		window.customElements.define("side-menu", SideMenuContent)
-
-
+		const app_block_content = document.getElementById('app-block-content');
+   		app_block_content.innerHTML = block_content_html;
 
 		const videos = result["videos"]
 		let videos_li = '';

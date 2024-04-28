@@ -62,4 +62,13 @@ function book_ready(match, books) {
     const app_block_content = document.getElementById('app-block-content');
     app_block_content.innerHTML = block_content_html;
     single_page();
+
+    const head_html = `
+		   <meta name="title" content="${book['name']}">
+		   <title>${book['name']}</title>
+		   <meta name="description" content="${book['name']}">
+		   <meta name="keywords" content="${book['name']}">
+	   	`
+	const head_html_content = document.getElementById('app-head');
+	head_html_content.innerHTML = head_html;
 }

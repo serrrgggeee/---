@@ -75,25 +75,6 @@ $(document).ready(function() {
 
     //main slider
 
-    /* activate the carousel */
-//    $("#carousel-example-generic").carousel({
-//         //interval:false,
-//         interval: 4000
-//     });//video galery
-
-    /* activate the carousel */
-   // $("#carousel-video-generic").carousel({
-   //      // interval:false,
-   //      interval: 2000
-   //  });
-
-//    $('#carousel-example-generic').bind('slide.bs.carousel', function (e) {
-//         console.log('slide event!');
-//     });
-
-    // $('#carousel-example-generic').bind('slid', function (e) {
-    //     console.log("slid event!");
-    // });
 
     var tag = document.createElement('script');
     tag.src = "http://www.youtube.com/player_api";
@@ -112,7 +93,9 @@ $(document).ready(function() {
               events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
-              }
+              },
+              origin: window.location.href
+              
             });
         }
     }

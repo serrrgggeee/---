@@ -88,7 +88,7 @@ function showMenu() {
 function get_data(data_name) {
     if(!window.hasOwnProperty(data_name)){
 	setTimeout(() => {
-            get_data(data_name);
+            return get_data(data_name);
       	}, 0);
     } else {
     	return new Promise(function(resolve, reject) {

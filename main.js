@@ -54,6 +54,7 @@ function main_ready() {
 		`
 		const app_block_content = document.getElementById('app-block-content');
    		app_block_content.innerHTML = block_content_html;
+		$('.carousel').carousel()
 
 		const videos = result["videos"]
 		let videos_li = '';

@@ -90,7 +90,17 @@ function main_ready() {
 		class VideoContent extends HTMLElement {
 			connectedCallback() {
 				this.innerHTML = video_html;
+				this.id = 'video-youtube'
 			}
 		}
-		window.customElements.define("video-content", VideoContent)
+
+		if(customElements.get('video-content') === undefined) {
+			window.customElements.define("video-content", VideoContent)
+			console.log('custom element not defined');
+		}
+		else {
+			console.log('video-content is defined');
+			const video_html_content = document.getElementById('video-youtube');
+			video_html_content.innerHTML = video_html;
+		}
 }

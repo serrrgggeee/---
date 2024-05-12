@@ -428,15 +428,13 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
 .img-description{
   margin-top: 30px;
 }
 
-/* .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-    width: auto;
-} */
 
 .video ol{
   padding: 0px;

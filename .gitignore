@@ -5,3 +5,5 @@ media
 __pycache__
 .env.*
 sitemap.xml
+*.sw*
+yandex_83f9bce797f92885.html

@@ -1,3 +1,24 @@
+*{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.to_top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  color: #425035;
+  font-size: large;
+  cursor: pointer;
+}
 @font-face {
     font-family: Ubuntu; /* Имя шрифта */
     src: url(/static/css/fonts/ubuntu/Ubuntu-M.ttf); /* Путь к файлу со шрифтом */
@@ -413,9 +434,9 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   margin-top: 30px;
 }
 
-.carousel-inner > .item > img, .carousel-inner > .item > a > img {
-    width: 100%;
-}
+/* .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: auto;
+} */
 
 .video ol{
   padding: 0px;
@@ -458,12 +479,12 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 }
 
 
-@media (min-width:1200px) {
+/* @media (min-width:1200px) {
   .carousel-inner > .item > img, 
   .carousel-inner > .item > a > img { 
       height: 100%;
   }
-}
+} */
 
 
 @media (max-width:767px){
@@ -477,3 +498,12 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
   }
 }
 
+
+.to_top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    color: #425035;
+    font-size: large;
+    cursor: pointer;
+}

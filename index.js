@@ -63,7 +63,12 @@ function linkClick(event) {
   event.preventDefault();
   event.stopPropagation();
   const target = event.currentTarget;
-  const href = target.pathname
+  const href = target.pathname;
+  try {
+    toDesctiption();
+  } catch(e) {
+
+  }
   
   try {
     router(href)

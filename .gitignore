@@ -4,3 +4,4 @@ book_data.js
 media
 __pycache__
 .env.*
+sitemap.xml

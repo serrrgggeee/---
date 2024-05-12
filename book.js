@@ -1,8 +1,31 @@
+function toTop() {
+    window.scrollTo(0, 0);
+}
+
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY
+    };
+}
+
+function toDesctiption() {
+    const el = document.getElementsByClassName("right-side")[0];
+    const position  = getOffset(el);
+    window.scrollTo(0, position.top - 25);
+}
+
 function book_ready(match, books) {
     let contents = '';
+
+    function getHref(page) {
+        return `/book/${page['id']}/`;
+    }
     for(let index in books) {
         const page = books[index];
-        contents += `<li><a class="single_page_link" href="/book/${page['id']}/" title="${page['name']}">${page['name']}</a></li>`;
+        const href = getHref(page)
+        contents += `<li><a class="single_page_link" href="${href}" title="${page['name']}">${page['name']}</a></li>`;
     } 
     const contents_html = `
         <div class="col-md-12>
@@ -26,16 +49,11 @@ function book_ready(match, books) {
         console.log('custom element is defined');
     }
     
-
     const book = books.find((element) => element['id'] == match[1]);
     block_content_html = `
         <contents-book></contents-book>
         <div class="col-md-12 col-md-offset- right-side">
-            <!--button type="button" class="btn btn-primary btn-lg" onclick="App.book_context_views('/book/ajax/${book['parent']}/')" id="btn_book_context" data-toggle="modal" data-target="#myModal">
-                Содержание книги
-            </button-->
-
-            <div class="row single_place">
+            <div class="row single_place" id="content">
                 <div class="col-md-12">
                 </div>
                 <div itemprop="description" class="col-md-12">
@@ -55,6 +73,7 @@ function book_ready(match, books) {
                 <a onclick="Share.google('{{ request.build_absolute_uri }}','Октябрьский район ','','Октябрьский район ')" class="social__link"><img src="${static_dot}/static/soc/soc7.png" alt="image"></a>
             </div>
             <div class="row delimiter">
+            <a onclick="toTop()" class="to_top">На верх↑</a>
             </div>
         </div>
 
@@ -71,4 +90,6 @@ function book_ready(match, books) {
 	   	`
 	const head_html_content = document.getElementById('app-head');
 	head_html_content.innerHTML = head_html;
+
+    // console.log(create_sitemap(books, getHref));
 }

@@ -22,13 +22,17 @@ function main_ready() {
 			</div>
 		`;
 		const categories = result["categories"].slice(1,-1)
+
+		function getHref(category) {
+			return `/${category.id}/`;
+		}
 		for(let index in categories) {
 			category = categories[index];
 			const image = category.image_description? category.image_description: `https://placehold.it/1050x600&text=${ category.name }`
-
+			const href = getHref(category);
 			slides_category += `
 				<div class="item">
-					<a class="single_page_link" href="/${category.id}/">
+					<a class="single_page_link" href="${href}">
 						<img src="${image}" alt=""/>
 
 						<div class="col-md-12">
@@ -104,4 +108,6 @@ function main_ready() {
 			const video_html_content = document.getElementById('video-youtube');
 			video_html_content.innerHTML = video_html;
 		}
+
+	console.log(create_sitemap(result["categories"], getHref));
 }

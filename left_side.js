@@ -14,9 +14,11 @@ function left_side_ready() {
     `
     
     class LeftSideContent extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = left_side_html;
-    }
+        connectedCallback() {
+            this.innerHTML = left_side_html;
+        }
     }
     window.customElements.define("left-side", LeftSideContent)
+
+    document.querySelector('.place').addEventListener("click", hideMenu)
 }

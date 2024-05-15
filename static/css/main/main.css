@@ -207,8 +207,9 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     margin-top: 0;
     margin-bottom: 10px;
     list-style-type: none;
-    overflow-y: auto;
-    height: 300px;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .place a.parent {

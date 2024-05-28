@@ -109,5 +109,5 @@ function main_ready() {
 			video_html_content.innerHTML = video_html;
 		}
 
-	console.log(create_sitemap(result["categories"], getHref));
+	// console.log(create_sitemap(result["categories"], getHref));
 }

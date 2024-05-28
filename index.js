@@ -85,6 +85,9 @@ function hideMenu() {
   const hided_buton_show_menu = document.querySelector('.left-side .hided_buton_show_menu');
   left_side.style.display = 'none';
   hided_buton_show_menu.style.display = 'block';
+
+  const namvbar  = document.getElementById('navbar');
+  namvbar.classList.remove("in");
 }
 
 function showMenu() {

@@ -39,14 +39,10 @@ function book_ready(match, books) {
             this.innerHTML = contents_html;
         }
     }
-    console.log(match[1]);
+
     // check if <contents-book> is registered
     if(customElements.get('contents-book') === undefined) {
         window.customElements.define("contents-book", СontentsContent)
-        console.log('custom element not defined');
-    }
-    else {
-        console.log('custom element is defined');
     }
     
     const book = books.find((element) => element['id'] == match[1]);

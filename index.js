@@ -10,7 +10,7 @@ single_page();
 
 function router(path) {
   if(path.includes('index.html')) {
-    path = localStorage.getItem("link");
+    path = localStorage.getItem("link") ? localStorage.getItem("link"): path;
   }
   if((path[path.length -1]) != '/') {
     path = path[path.length -1] + '/'

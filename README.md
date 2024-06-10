@@ -4,3 +4,14 @@ https://stackoverflow.com/questions/10091271/how-can-i-implement-a-simple-web-se
 https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html
 
 https://github.com/klen/http-router
+
+
+# sync media
+    rsync -avu back/media/. front/media
+
+# get places
+    res=$(curl backend_url/places/)
+    echo "window.places=$res" > places.js
+
+    source .env
+    source ./sync.sh

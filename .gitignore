@@ -6,4 +6,6 @@ __pycache__
 .env.*
 sitemap.xml
 *.sw*
+places.js
 yandex_83f9bce797f92885.html
+.env

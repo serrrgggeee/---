@@ -1,5 +1,5 @@
-function place_ready(match, result) {
-    const place = result['categories'].find((element) => element['id'] == match[1]);
+function place_ready(match, places) {
+    const place = places.find((element) => element['id'] == match[1]);
     
     let photos = '';
     let photos_corousel = '';

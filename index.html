@@ -48,6 +48,7 @@
 		`${static_dot}/static/js/gallery.js`,
 		`${static_dot}/top_menu.js`,
 		`${static_dot}/place.js`,
+		`${static_dot}/places.js`,
 		`${static_dot}/left_side.js`,
 		`${static_dot}/page_not_found.js`,
 		`${static_dot}/block_content.js`,
@@ -92,7 +93,7 @@
 		setTimeout(() => {
 			try{
 				window.ROUNTERS = {
-					'^\/(\\d{1,})\/$': {'method': place_ready, 'file': 1, 'data': 'result'},
+					'^\/(\\d{1,})\/$': {'method': place_ready, 'file': 1, 'data': 'places'},
 					'^\/book\/(\\d{1,})\/$': {'method': book_ready, 'file': 'book_data', 'data': 'book_result'},
 					'^(/\)$': {'method': main_ready, 'file': 'data', 'data': 'result'}
 				}

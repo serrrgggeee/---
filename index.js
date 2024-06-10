@@ -1,7 +1,7 @@
 let root_nodes = '';
 let place_right_side_html = '';
 
-get_left_side(result);
+get_left_side(places);
 left_side_ready();
 let path = window.location.pathname;
 router(path);
@@ -10,7 +10,7 @@ single_page();
 
 function router(path) {
   if(path.includes('index.html')) {
-    path = localStorage.getItem("link") ? localStorage.getItem("link"): path;
+    path = localStorage.getItem("link", path) ? localStorage.getItem("link"): path;
   }
   if((path[path.length -1]) != '/') {
     path = path[path.length -1] + '/'
@@ -34,13 +34,13 @@ function router(path) {
 }
 
 
-function get_left_side(result) {
-    for(let index in result["categories"]) {
-      category = result["categories"][index];
+function get_left_side(places) {
+    for(let index in places) {
+      category = places[index];
       if(category['is_root_node']) {
         root_nodes += `<a class="single_page_link parent" href="/${category['id']}/">${category['name']}</a>`;
-        for(let index in result["categories"]) {
-          child = result["categories"][index];
+        for(let index in places) {
+          child = places[index];
           if(child['parent'] == category['id']) {
             root_nodes += `<li><a class="single_page_link children" href="/${child['id']}/">${child['name']}</a></li>`;
           }

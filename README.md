@@ -13,5 +13,10 @@ https://github.com/klen/http-router
     res=$(curl backend_url/places/)
     echo "window.places=$res" > places.js
 
-    source .env
-    source ./sync.sh
+    # local
+        source .env
+        source ./sync.sh
+
+    # prod 
+        source .env_prod
+        source ./sync.sh

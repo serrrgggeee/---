@@ -99,14 +99,14 @@ function main_ready() {
 			}
 		}
 
-		if(customElements.get('video-content') === undefined) {
+
+		if(document.getElementById('video-youtube') === null) {
 			window.customElements.define("video-content", VideoContent)
-			console.log('custom element not defined');
+			youtube_player()
 		}
+
 		else {
-			console.log('video-content is defined');
-			const video_html_content = document.getElementById('video-youtube');
-			video_html_content.innerHTML = video_html;
+			youtube_player()
 		}
 
 	// console.log(create_sitemap(result["categories"], getHref));

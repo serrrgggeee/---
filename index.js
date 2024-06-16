@@ -71,8 +71,8 @@ function linkClick(event) {
   }
   
   try {
-    router(href)
     localStorage.setItem("link", href);
+    router(href)
     history.pushState({}, null, target);
   } catch(e){
     console.log(e);

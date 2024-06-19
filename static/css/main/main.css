@@ -206,12 +206,11 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
 .place ul, ol {
   margin-top: 0;
   margin-bottom: 10px;
-  list-style-type: none;
   overflow: auto;
   height: 100vh;
   position: absolute;
   width: 100%;
-  background: #0d3a0d;
+  background: #333833;
   left: 0%;
   top: 0%;
 }
@@ -432,7 +431,8 @@ padding-top:1px; /*Вводим отступ между li чтобы созда
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    max-width: 50%;
+    height: auto;
 }
 
 .img-description{
@@ -440,17 +440,19 @@ padding-top:1px; /*Вводим отступ между li чтобы созда
 }
 
 
-.video ol{
+.video ol {
   padding: 0px;
   max-height: 500px;
   overflow-y: auto;
+  height: 35px;
 
 }
+
 
 .play_video{
   padding: 5px;
   margin-top: 5px;
-  background: #3c763d;
+  background: #295e2a;
   cursor: pointer;
   border-radius: 5px; 
 }

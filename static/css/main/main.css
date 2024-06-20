@@ -203,6 +203,10 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     border-radius: 3px;
 }
 
+ol, ul {
+  list-style: none;
+}
+
 .place ul {
   overflow: auto;
   height: 100vh;
@@ -442,10 +446,6 @@ padding-top:1px; /*Вводим отступ между li чтобы созда
   padding: 0px;
   max-height: 500px;
   overflow-y: auto; 
-}
-
-ol {
-  list-style: none;
 }
 
 .play_video{

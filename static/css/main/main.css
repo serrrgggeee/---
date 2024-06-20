@@ -203,9 +203,7 @@ h2, .single_place h1, .article h1, h1.not_found,  .video h3,
     border-radius: 3px;
 }
 
-.place ul, ol {
-  margin-top: 0;
-  margin-bottom: 10px;
+.place ul {
   overflow: auto;
   height: 100vh;
   position: absolute;
@@ -443,18 +441,18 @@ padding-top:1px; /*Вводим отступ между li чтобы созда
 .video ol {
   padding: 0px;
   max-height: 500px;
-  overflow-y: auto;
-  height: 35px;
-
+  overflow-y: auto; 
 }
 
+ol {
+  list-style: none;
+}
 
 .play_video{
   padding: 5px;
-  margin-top: 5px;
-  background: #295e2a;
-  cursor: pointer;
-  border-radius: 5px; 
+  margin-top: 2px;
+  background: #e9d8a6;
+  text-align: center;
 }
 
 .soc{
